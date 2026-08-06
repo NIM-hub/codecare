@@ -1,9 +1,12 @@
 import * as vscode from 'vscode';
 
 // 🔁 Change this to set how often reminders should appear (in minutes)
+// 🔁 Change this to set how often reminders should appear (in minutes)
 let reminderIntervalMinutes = 2;
 let messageIndex = 0;
 
+// 🕒 Store the reminder timer so it can be stopped later
+let reminderTimer: NodeJS.Timeout | undefined;
 // 🧘‍♀️ Reminder messages shown one by one
 const reminderMessages = [
   {
@@ -37,7 +40,8 @@ export function activate(context: vscode.ExtensionContext) {
   const intervalMillis = reminderIntervalMinutes * 60 * 1000;
 
   // 🕒 Start showing motivational popups
-  setInterval(() => {
+  // 🕒 Start showing motivational popups
+reminderTimer = setInterval(() => {
     const message = reminderMessages[messageIndex];
     showReminderWebview(message.title, message.body);
     messageIndex = (messageIndex + 1) % reminderMessages.length;
@@ -110,4 +114,9 @@ function getWebviewContent(title: string, body: string): string {
   `;
 }
 
-export function deactivate() {}
+export function deactivate() {
+  if (reminderTimer) {
+    clearInterval(reminderTimer);
+    console.log('🛑 CodeCare reminder stopped.');
+  }
+}
