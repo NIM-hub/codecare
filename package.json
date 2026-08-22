@@ -1,8 +1,10 @@
 {
   "name": "codecare",
-  "displayName": "codecare",
-  "description": "\tGently reminds developers to hydrate, stretch, and relax while coding",
+  "displayName": "CodeCare",
+  "description": "Gently reminds developers to hydrate, stretch, and relax while coding.",
+  "icon": "icon.png",
   "version": "0.0.1",
+  "publisher": "DevSilva",
   "engines": {
     "vscode": "^1.101.0"
   },
@@ -10,36 +12,34 @@
     "Other"
   ],
   "activationEvents": [
-    "*"
+    "onStartupFinished"
   ],
   "main": "./out/extension.js",
   "contributes": {
-  "commands": [
-    {
-      "command": "codecare.helloWorld",
-      "title": "Hello World"
-    }
-  ],
-  "configuration": {
-    "type": "object",
-    "title": "CodeCare",
-    "properties": {
-      "codecare.enableReminders": {
-        "type": "boolean",
-        "default": true,
-        "description": "Enable or disable CodeCare reminder popups"
-      },
-      "codecare.reminderInterval": {
-        "type": "number",
-        "default": 60,
-        "description": "Set reminder interval in minutes (e.g. 15, 30, 60)"
+    "commands": [
+      {
+        "command": "codecare.helloWorld",
+        "title": "CodeCare: Hello World"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "CodeCare",
+      "properties": {
+        "codecare.enableReminders": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable or disable CodeCare reminder popups."
+        },
+        "codecare.reminderInterval": {
+          "type": "number",
+          "default": 60,
+          "minimum": 1,
+          "description": "Set the reminder interval in minutes."
+        }
       }
     }
-  }
-},
-
-  
-  
+  },
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
