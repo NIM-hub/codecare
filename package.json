@@ -5,6 +5,14 @@
   "icon": "icon.png",
   "version": "0.0.1",
   "publisher": "DevSilva",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NIM-hub/codecare.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NIM-hub/codecare/issues"
+  },
   "engines": {
     "vscode": "^1.101.0"
   },
@@ -16,12 +24,6 @@
   ],
   "main": "./out/extension.js",
   "contributes": {
-    "commands": [
-      {
-        "command": "codecare.helloWorld",
-        "title": "CodeCare: Hello World"
-      }
-    ],
     "configuration": {
       "type": "object",
       "title": "CodeCare",
