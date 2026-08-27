@@ -3,7 +3,7 @@
   "displayName": "CodeCare",
   "description": "Gently reminds developers to hydrate, stretch, and relax while coding.",
   "icon": "icon.png",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "DevSilva",
   "license": "MIT",
   "repository": {
@@ -35,7 +35,7 @@
         },
         "codecare.reminderInterval": {
           "type": "number",
-          "default": 60,
+          "default": 30,
           "minimum": 1,
           "description": "Set the reminder interval in minutes."
         }
